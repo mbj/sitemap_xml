@@ -72,6 +72,7 @@ PATH
       abstract_class (~> 0.0.1)
       descendants_tracker (~> 0.0.1)
       equalizer (~> 0.0.1)
+      ice_nine (~> 0.4.0)
       immutable (~> 0.0.1)
       nokogiri (~> 1.5.5)
 
