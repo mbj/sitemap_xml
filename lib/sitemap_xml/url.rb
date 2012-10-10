@@ -1,11 +1,8 @@
 module SitemapXML
-  class Entry
-    include Anima, Immutable
 
-    # Anima attribute that defaults to nil
-    class DefaultNil < ::Anima::Attribute
-      DEFAULT = ::Anima::Default::Value.new(nil)
-    end
+  # URL sitemap entry
+  class URL
+    include Anima, Immutable
 
     attribute :location
     attribute :last_modification, DefaultNil

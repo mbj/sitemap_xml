@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe 'simple sitemap' do
+describe 'sitemap' do
   subject { SitemapXML.generate(entries) }
 
   def entry(attributes)
-    SitemapXML::Entry.new(attributes)
+    SitemapXML::URL.new(attributes)
   end
 
   let(:entries) do

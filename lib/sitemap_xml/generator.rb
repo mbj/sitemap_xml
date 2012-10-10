@@ -1,7 +1,19 @@
 module SitemapXML
-  # Generator for sitemap xml 
   class Generator
-    include Immutable
+    include Immutable, AbstractClass
+
+    # Generate blob from items
+    #
+    # @param [Enumerable<Object>] items
+    #
+    # @return [String]
+    #
+    def self.generate(items)
+      io = StringIO.new
+      self.new(items).write(io)
+      io.rewind
+      io.read
+    end
 
     # Write chunks to io
     #
@@ -19,33 +31,57 @@ module SitemapXML
       self
     end
 
-    # Enumerate chunks of data
+    # Enumerate chunks
+    #
+    # @return [self]
+    #   if block given
+    #
+    # @return [Enumerator<String>]
+    #   otherwise
+    #
+    # @api private
+    #   
+    abstract_method :each
+
+    # Return input
+    #
+    # @return [Enumerable<Object>] 
     #
     # @api private
     #
-    def each
-      return to_enum unless block_given?
-
-      yield '<?xml version="1.0" encoding="UTF-8"?>'
-      yield '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-      @entries.each do |entry|
-        yield Presenter.xml(entry)
-      end
-      yield '</urlset>' 
-    end
+    attr_reader :input
 
   private
 
     # Initialize object
     #
-    # @param [Entries] entries
+    # @param [Enumerable<Object>] input
     #
     # @return [undefined]
     #
     # @api private
     #
-    def initialize(entries)
-      @entries = entries
+    def initialize(input)
+      @input = input
     end
+
+    # Return xml for item
+    # 
+    # @param [Object] input
+    #
+    # @return [String]
+    #
+    def xml(item)
+      presenter.xml(item)
+    end
+
+    # Return presenter
+    #
+    # @return [#xml]
+    #
+    def presenter
+      self.class::PRESENTER
+    end
+
   end
 end
