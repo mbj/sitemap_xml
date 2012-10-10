@@ -50,8 +50,8 @@ module SitemapXML
       case last_modification
       when NilClass
         return
-      when Time
-        last_modification.utc.strftime('%Y-%m-%dT%H:%M:%S+00:00')
+      when Time, DateTime
+        last_modification.strftime('%Y-%m-%dT%H:%M:%S%:z')
       when Date
         last_modification.strftime('%Y-%m-%d')
       else

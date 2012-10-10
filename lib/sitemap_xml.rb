@@ -39,8 +39,10 @@ module SitemapXML
   end
 end
 
+require 'sitemap_xml/xml'
 require 'sitemap_xml/url'
 require 'sitemap_xml/sitemap'
+require 'sitemap_xml/index'
 require 'sitemap_xml/presenter'
 require 'sitemap_xml/presenter/sitemap'
 require 'sitemap_xml/presenter/url'
