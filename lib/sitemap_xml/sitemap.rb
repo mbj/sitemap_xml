@@ -2,7 +2,7 @@ module SitemapXML
 
   # Sitemap index entry
   class Sitemap
-    include Anima, Immutable
+    include Anima, Adamantium
 
     attribute :location
     attribute :last_modification, DefaultNil

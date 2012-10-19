@@ -2,7 +2,7 @@ module SitemapXML
 
   # Abstract base class for presenter
   class Presenter
-    include AbstractClass, Immutable, Equalizer.new(:input)
+    include AbstractClass, Adamantium, Equalizer.new(:input)
 
     # Convert input to xml
     #

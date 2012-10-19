@@ -1,7 +1,7 @@
 module SitemapXML
   # Sitemap index
   class Index
-    include Anima, Immutable
+    include Anima, Adamantium
 
     attribute :sitemaps
 

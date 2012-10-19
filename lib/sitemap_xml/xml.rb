@@ -2,7 +2,7 @@ module SitemapXML
 
   # XML decorator
   class XML
-    include Immutable
+    include Adamantium
 
     # Return location
     #

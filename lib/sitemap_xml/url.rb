@@ -2,7 +2,7 @@ module SitemapXML
 
   # URL sitemap entry
   class URL
-    include Anima, Immutable
+    include Anima, Adamantium
 
     attribute :location
     attribute :last_modification, DefaultNil

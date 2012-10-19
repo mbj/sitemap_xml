@@ -1,6 +1,6 @@
 module SitemapXML
   class Generator
-    include Immutable, AbstractClass
+    include Adamantium, AbstractClass
 
     # Generate blob from items
     #

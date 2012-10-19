@@ -1,4 +1,4 @@
-require 'immutable'
+require 'adamantium'
 require 'equalizer'
 require 'anima'
 require 'nokogiri'
