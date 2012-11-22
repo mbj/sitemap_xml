@@ -2,14 +2,14 @@ module SitemapXML
 
   # URL sitemap entry
   class URL
-    include Anima, Adamantium
+    include Anima, Adamantium::Flat
 
     attribute :location
     attribute :last_modification, DefaultNil
     attribute :change_frequency,  DefaultNil
     attribute :priority,          DefaultNil
 
-    include Equalizer.new(*attribute_set.map(&:name))
+    equalize_on_attributes
 
     # Convert node to sitemap
     #

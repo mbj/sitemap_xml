@@ -21,5 +21,4 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('abstract_class',      '~> 0.0.1')
   gem.add_runtime_dependency('equalizer',           '~> 0.0.1')
   gem.add_runtime_dependency('nokogiri',            '~> 1.5.0')
-  gem.add_runtime_dependency('ice_nine',            '~> 0.4.0')
 end

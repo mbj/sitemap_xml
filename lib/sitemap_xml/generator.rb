@@ -1,6 +1,6 @@
 module SitemapXML
   class Generator
-    include Adamantium, AbstractClass
+    include Adamantium::Flat, AbstractClass
 
     # Generate blob from items
     #

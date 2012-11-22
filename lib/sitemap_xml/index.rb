@@ -1,11 +1,11 @@
 module SitemapXML
   # Sitemap index
   class Index
-    include Anima, Adamantium
+    include Anima, Adamantium::Flat
 
     attribute :sitemaps
 
-    include Equalizer.new(*attribute_set.map(&:name))
+    equalize_on_attributes
 
     # Return xml
     #

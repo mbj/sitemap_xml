@@ -2,7 +2,7 @@ module SitemapXML
 
   # XML decorator
   class XML
-    include Adamantium
+    include Adamantium::Flat
 
     # Return location
     #
