@@ -1,6 +1,7 @@
 module SitemapXML
+  # Abstract XML generator base class
   class Generator
-    include Adamantium::Flat, AbstractClass
+    include Adamantium::Flat, AbstractType
 
     # Generate blob from items
     #
@@ -8,11 +9,39 @@ module SitemapXML
     #
     # @return [String]
     #
+    # @api private
+    #
     def self.generate(items)
       io = StringIO.new
       self.new(items).write(io)
       io.rewind
       io.read
+    end
+
+    # Enumerate chunks of data
+    #
+    # @return [self]
+    #   if block is given
+    #
+    # @return [Enumerator<String>]
+    #   otherwise
+    #
+    # @api private
+    #
+    def each
+      return to_enum unless block_given?
+
+      klass = self.class
+
+      yield klass::HEADER
+
+      input.each do |item|
+        yield xml(item)
+      end
+
+      yield klass::FOOTER 
+
+      self
     end
 
     # Write chunks to io
@@ -30,18 +59,6 @@ module SitemapXML
 
       self
     end
-
-    # Enumerate chunks
-    #
-    # @return [self]
-    #   if block given
-    #
-    # @return [Enumerator<String>]
-    #   otherwise
-    #
-    # @api private
-    #   
-    abstract_method :each
 
     # Return input
     #
@@ -67,9 +84,11 @@ module SitemapXML
 
     # Return xml for item
     # 
-    # @param [Object] input
+    # @param [Object] item
     #
     # @return [String]
+    #
+    # @api private
     #
     def xml(item)
       presenter.xml(item)
@@ -78,6 +97,8 @@ module SitemapXML
     # Return presenter
     #
     # @return [#xml]
+    #
+    # @api private
     #
     def presenter
       self.class::PRESENTER

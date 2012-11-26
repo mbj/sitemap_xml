@@ -21,7 +21,9 @@ module SitemapXML
 
     # Parse input to index
     #
-    # @param [String]
+    # @param [String] input
+    #
+    # @return [Index]
     #
     # @api private
     #

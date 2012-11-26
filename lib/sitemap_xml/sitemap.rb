@@ -28,7 +28,7 @@ module SitemapXML
 
     # Parse input to urls
     #
-    # @param [String]
+    # @param [String] input
     #
     # @return [Enumerable<URL>]
     #
@@ -39,5 +39,6 @@ module SitemapXML
         URL.from_node(node)
       end
     end
+
   end
 end

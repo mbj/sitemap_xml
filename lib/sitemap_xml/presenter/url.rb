@@ -32,12 +32,14 @@ module SitemapXML
       # @return [nil}
       #   otherwise
       #
+      # @api private
+      #
       def priority
         priority = input.priority
 
         return unless priority
 
-        return priority.to_s
+        priority.to_s
       end
 
       # Return xml

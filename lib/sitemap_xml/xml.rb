@@ -50,13 +50,15 @@ module SitemapXML
     # Return last_modification
     #
     # @return [Date]
-    #   if date
+    #   if in date format
     #
     # @return [DateTime]
-    #   if datetime
+    #   if in datetime format
     #
     # @return [nil]
     #   if not present
+    #
+    # @api private
     #
     def last_modification
       lastmod = one_or_nil('./xmlns:lastmod')
@@ -87,10 +89,14 @@ module SitemapXML
     # @raise [RuntimeError]
     #   otherwise
     #
+    # @api private
+    #
     def one(xpath)
       elements = node.xpath(xpath)
-      unless elements.size == 1
-        raise "Expected one element for: #{xpath.inspect} got: #{elements.size}"
+      size = elements.size
+      unless size == 1
+        return yield size if block_given?
+        raise "Expected one element for: #{xpath.inspect} got: #{size}"
       end
       elements.first
     end
@@ -106,11 +112,13 @@ module SitemapXML
     #   otherwise
     #
     def one_or_nil(xpath)
-      elements = node.xpath(xpath)
-      if elements.size > 1
-        raise "Expected one or zero element for: #{xpath.inspect} got: #{elements.size}"
+      one(xpath) do |size|
+        unless size.zero?
+          raise "Expected one or zero element for: #{xpath.inspect} got: #{size}"
+        else
+          nil
+        end
       end
-      elements.first
     end
 
     # Return node
@@ -136,6 +144,8 @@ module SitemapXML
     # Parse xml 
     #
     # @param [String] input
+    #
+    # @return [XML]
     #
     # @api private
     #
