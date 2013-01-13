@@ -9,11 +9,6 @@ require 'ice_nine/core_ext/object'
 # Library namespace
 module SitemapXML
 
-  # Anima attribute that defaults to nil
-  class DefaultNil < ::Anima::Attribute
-    DEFAULT = ::Anima::Default::Value.new(nil)
-  end
-
   # Generate sitemap as a blob
   #
   # @param [Enumerable<URL>] urls
