@@ -31,15 +31,11 @@ module SitemapXML
     def each
       return to_enum unless block_given?
 
-      klass = self.class
-
-      yield klass::HEADER
-
+      yield header
       input.each do |item|
         yield xml(item)
       end
-
-      yield klass::FOOTER 
+      yield footer
 
       self
     end
@@ -102,6 +98,26 @@ module SitemapXML
     #
     def presenter
       self.class::PRESENTER
+    end
+
+    # Return header
+    #
+    # @return [String]
+    #
+    # @api private
+    #
+    def header
+      self.class::HEADER
+    end
+
+    # Return footer
+    #
+    # @return [String]
+    #
+    # @api private
+    #
+    def footer
+      self.class::FOOTER
     end
 
   end

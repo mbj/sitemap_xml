@@ -4,13 +4,12 @@ module SitemapXML
     # Generator for sitemap index 
     class Index < self
       PRESENTER = Presenter::Sitemap
-
-      HEADER = [
+      HEADER = IceNine.deep_freeze([
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-      ].join("\n").freeze
-
+      ].join("\n"))
       FOOTER = '</sitemapindex>'.freeze
     end
+
   end
 end
