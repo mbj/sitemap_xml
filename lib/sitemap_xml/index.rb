@@ -1,11 +1,7 @@
 module SitemapXML
   # Sitemap index
   class Index
-    include Anima, Adamantium::Flat
-
-    attribute :sitemaps
-
-    equalize_on_attributes
+    include Adamantium::Flat, Anima.new(:sitemaps)
 
     # Return xml
     #
@@ -17,7 +13,6 @@ module SitemapXML
       Generator::Index.generate(sitemaps)
     end
     memoize :xml
-
 
     # Parse input to index
     #

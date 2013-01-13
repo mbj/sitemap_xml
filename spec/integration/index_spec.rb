@@ -10,10 +10,11 @@ describe 'sitemap index' do
     [
       entry(
         :location          => 'http://www.example.com/sitemap1.xml.gz',
-        :last_modification => DateTime.parse('2004-10-01T18:23:17+02:00'),
+        :last_modification => DateTime.parse('2004-10-01T18:23:17+02:00')
       ),
       entry(
-        :location         => 'http://www.example.com/sitemap2.xml.gz',
+        :location          => 'http://www.example.com/sitemap2.xml.gz',
+        :last_modification => nil
       )
     ]
   end

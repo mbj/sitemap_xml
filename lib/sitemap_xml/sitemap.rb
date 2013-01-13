@@ -2,12 +2,7 @@ module SitemapXML
 
   # Sitemap index entry
   class Sitemap
-    include Anima, Adamantium::Flat
-
-    attribute :location
-    attribute :last_modification, DefaultNil
-
-    equalize_on_attributes
+    include Adamantium::Flat, Anima.new(:location, :last_modification)
 
     # Convert node to sitemap
     #

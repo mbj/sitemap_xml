@@ -14,22 +14,28 @@ describe 'sitemap' do
         :priority          => 0.8
       ),
       entry(
-        :location         => 'http://www.example.com/catalog?item=12&desc=vacation_hawaii',
-        :change_frequency => 'weekly',
+        :location          => 'http://www.example.com/catalog?item=12&desc=vacation_hawaii',
+        :last_modification => nil,
+        :change_frequency  => 'weekly',
+        :priority          => nil
       ),
       entry(
         :location          => 'http://www.example.com/catalog?item=73&desc=vacation_new_zealand',
         :last_modification => Date.parse('2004-12-23'),
         :change_frequency  => 'weekly',
+        :priority          => nil
       ),
       entry(
         :location          => 'http://www.example.com/catalog?item=74&desc=vacation_newfoundland',
         :last_modification => DateTime.parse('2004-12-23T18:00:15+01:00'),
+        :change_frequency  => nil,
         :priority          => 0.3
       ),
       entry(
         :location          => 'http://www.example.com/catalog?item=83&desc=vacation_usa',
-        :last_modification => Date.parse('2004-11-23')
+        :last_modification => Date.parse('2004-11-23'),
+        :change_frequency  => nil,
+        :priority          => nil
       )
     ]
   end
