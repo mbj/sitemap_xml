@@ -4,11 +4,11 @@ module SitemapXML
     # Presenter for sitemap urls
     class URL < self
 
-      OPTIONAL = %w(
+      OPTIONAL = IceNine.deep_freeze(%w(
         lastmod
         changefreq
         priority
-      ).deep_freeze
+      ))
 
       # Return changefreq
       #
