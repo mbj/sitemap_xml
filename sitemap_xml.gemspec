@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.name        = 'sitemap_xml'
   gem.version     = SitemapXML::VERSION.dup
   gem.authors     = [ 'Markus Schirp' ]
-  gem.email       = [ 'mbj@seonic.net' ]
+  gem.email       = [ 'mbj@schir-dso.com' ]
   gem.description = 'Sitemap XML generator'
   gem.summary     = gem.description
   gem.homepage    = 'https://github.com/mbj/sitemap_xml'
